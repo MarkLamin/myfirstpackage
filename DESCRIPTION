@@ -1,0 +1,14 @@
+Package: myfirstpackage
+Title: Project 3 for STAT 302
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Mark",
+           family = "Lamin",
+           role = c("aut", "cre"),
+           email = "mark.lamin@gmail.com")
+Description: Creating a package in R for the first time.
+License: GPL (>= 3)
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
