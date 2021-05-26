@@ -3,6 +3,7 @@
 
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/MarkLamin/myfirstpackage/workflows/R-CMD-check/badge.svg)](https://github.com/MarkLamin/myfirstpackage/actions)
+[![codecov](https://codecov.io/gh/MarkLamin/myfirstpackage/branch/master/graph/badge.svg?token=EBUIPEO7C1)](https://codecov.io/gh/MarkLamin/myfirstpackage)
 <!-- badges: end -->
 
 The goal of myfirstpackage is to ...
