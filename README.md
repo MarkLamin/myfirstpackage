@@ -24,4 +24,13 @@ This is a basic example which shows you how to solve a common problem:
 library(myfirstpackage)
 ## basic example code
 ```
+```{r}
+To view the vignette:
+devtools::install_github("bryandmartin/Demo", build_vignette = TRUE, build_opts = c())
+library(Demo)
+# Use this to view the vignette in the Demo HTML help
+help(package = "Demo", help_type = "html")
+# Use this to view the vignette as an isolated HTML file
+utils::browseVignettes(package = "Demo")
+```
 
