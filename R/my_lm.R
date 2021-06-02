@@ -7,9 +7,9 @@
 #' @keywords linear regression
 #'
 #' @return A table with rows for each coefficient and columns for the estimate, standard error, test statistic and p-value
-#'
+#' @importFrom stats filter model.frame model.matrix model.response predict pt sd na.omit
 #' @examples
-#' my_lm(y~x,my_penguins[4:5])
+#' my_lm(bill_length_mm~bill_depth_mm,my_penguins)
 #'
 #'
 #' @export

@@ -18,7 +18,7 @@ A table with rows for each coefficient and columns for the estimate, standard er
 This function creates a linear model and tests if there is a correlation between the model and the data.
 }
 \examples{
-my_lm(y~x,my_penguins[4:5])
+my_lm(bill_length_mm~bill_depth_mm,my_penguins)
 
 
 }

@@ -13,7 +13,7 @@
 #'
 #' @examples
 #' my_penguins <- my_penguins %>% na.omit
-#' my_knn_cv(my_penguins[3:6], penguins$species, 1, 5)
+#' my_knn_cv(my_penguins[3:6], my_penguins$species, 1, 5)
 #'
 #' @export
 my_knn_cv <- function(train, cl, k_nn, k_cv){
@@ -22,7 +22,7 @@ my_knn_cv <- function(train, cl, k_nn, k_cv){
   fold <- sample(rep(1:k_cv, length = length(rownames(train))))
 
   #set folds to dataset
-  data <- train %>% mutate(fold = fold)
+  data <- train %>% dplyr::mutate(fold = fold)
 
   #initialize predictions
   pred <- rep(NA, length(cl))
@@ -31,19 +31,19 @@ my_knn_cv <- function(train, cl, k_nn, k_cv){
   for(i in (1:k_cv)){
 
     #split data into training and testing
-    data_train <- data %>% filter(fold != i)
-    data_test <- data %>% filter(fold == i)
+    data_train <- data %>% dplyr::filter(fold != i)
+    data_test <- data %>% dplyr::filter(fold == i)
 
     #account for length in the class
     cl_train <- cl[fold != i]
     cl_test <- cl[fold == i]
 
     #store prediction
-    pred[fold == i] <- as.character(knn(data_train[,-ncol(data_train)],
+    pred[fold == i] <- as.character(class::knn(data_train[,-ncol(data_train)],
                                         data_test[,-ncol(data_test)],
                                         cl_train, k_nn))
   }
-  class <- as.character(knn(train,train,cl,k_nn))
+  class <- as.character(class::knn(train,train,cl,k_nn))
   cv_err <- mean(pred != cl)
   return(list(class, cv_err))
 

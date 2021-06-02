@@ -22,7 +22,8 @@ A list with the predicted class values and the cross validation misclassificatio
 Uses k nearest neighbors as a method of statistical prediction and records the error
 }
 \examples{
-my_knn_cv((penguins \%>\% na.omit)[3:6], penguins$species, 1, 5)
+my_penguins <- my_penguins \%>\% na.omit
+my_knn_cv(my_penguins[3:6], my_penguins$species, 1, 5)
 
 }
 \keyword{k}
