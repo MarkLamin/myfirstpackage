@@ -1,0 +1,22 @@
+my_t.test <- function(x, alternative, mu){
+
+  #degrees of freedom is one less than sample size
+  df <- length(x)-1
+
+  #test statistic
+  test_stat <- ((mean(x) - mu) / ((sd(x)/sqrt(length(x)))))
+
+  #p-value depends on alternative
+  if(alternative == "less"){
+    p_val <- pt(test_stat, df = length(x)-1)
+  }
+  else if(alternative == "greater"){
+    p_val <- 1 - pt(test_stat, df = length(x)-1)
+  }
+  else if(alternative == "two.sided"){
+    p_val <- 2*pt(q = -abs(test_stat), df = length(x)-1)
+  }
+
+  return(list("test statistic" = test_stat, "degrees of freedom" = df,
+              "alternative" =  alternative,"p value" = p_val))
+}

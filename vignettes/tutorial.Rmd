@@ -1,5 +1,5 @@
 ---
-title: "PACKAGE_NAME Tutorial"
+title: "myfirstpackage Tutorial"
 author: "Mark Lamin"
 output: rmarkdown::html_vignette
 vignette: >

@@ -26,11 +26,11 @@ library(myfirstpackage)
 ```
 ```{r}
 To view the vignette:
-devtools::install_github("bryandmartin/Demo", build_vignette = TRUE, build_opts = c())
+devtools::install_github("MarkLamin/myfirstpackage", build_vignette = TRUE, build_opts = c())
 library(Demo)
 # Use this to view the vignette in the Demo HTML help
-help(package = "Demo", help_type = "html")
+help(package = "myfirstpackage", help_type = "html")
 # Use this to view the vignette as an isolated HTML file
-utils::browseVignettes(package = "Demo")
+utils::browseVignettes(package = "myfirstpackage")
 ```
 
