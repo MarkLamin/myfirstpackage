@@ -27,8 +27,8 @@ library(myfirstpackage)
 ```{r}
 To view the vignette:
 devtools::install_github("MarkLamin/myfirstpackage", build_vignette = TRUE, build_opts = c())
-library(Demo)
-# Use this to view the vignette in the Demo HTML help
+library(myfirstpackage)
+# Use this to view the vignette in the myfirstpackage HTML help
 help(package = "myfirstpackage", help_type = "html")
 # Use this to view the vignette as an isolated HTML file
 utils::browseVignettes(package = "myfirstpackage")

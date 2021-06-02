@@ -1,0 +1,29 @@
+my_rf_cv <- function(k){
+  #create folds
+  a_fold <- sample(rep(1:k, length = nrow(penguins)))
+  penguins <- penguins %>% mutate(fold = a_fold)
+
+  #initialize predictions
+  pred <- rep(NA, length(nrow(penguins)))
+
+  #iterate through each fold
+  for(i in(1:k)){
+
+    #split data into training and testing
+    data_train <- penguins %>% filter(fold != i)
+    data_test <- penguins %>% filter(fold == i)
+
+    #using random forest
+    model <- randomForest(body_mass_g ~ bill_length_mm + bill_depth_mm +
+                            flipper_length_mm,
+                          data = data_train, ntree = 100)
+    pred[a_fold == i] <- predict(model, newdata = data_test[, -6])
+  }
+
+  #Calculate MSE
+  MSE <- mean((pred - penguins$body_mass_g)^2)
+
+  #Calculate CV error
+  cv_err <- MSE/k
+  return(cv_err)
+}
