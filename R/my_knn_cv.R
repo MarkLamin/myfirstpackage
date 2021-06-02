@@ -1,3 +1,20 @@
+#' K nearest neighbors
+#'
+#' Uses k nearest neighbors as a method of statistical prediction and records the error
+#'
+#' @param train input dataframe
+#' @param cl true class value of your training data
+#' @param k_nn integer value representing the number of neighbors
+#' @param k_cv integer value representing the number of folds
+#'
+#' @keywords k nearest neighbors
+#'
+#' @return A list with the predicted class values and the cross validation misclassification error
+#'
+#' @examples
+#' my_knn_cv((penguins %>% na.omit)[3:6], penguins$species, 1, 5)
+#'
+#' @export
 my_knn_cv <- function(train, cl, k_nn, k_cv){
 
   #create folds

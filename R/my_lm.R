@@ -9,8 +9,7 @@
 #' @return A table with rows for each coefficient and columns for the estimate, standard error, test statistic and p-value
 #'
 #' @examples
-#' my_lm()
-#' my_lm()
+#' my_lm(y~x,my_penguins[4:5])
 #'
 #'
 #' @export

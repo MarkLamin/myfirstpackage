@@ -1,3 +1,16 @@
+#' Random Forest
+#'
+#' This function uses Random Forest as a method of statistical prediction and records the error
+#'
+#' @param k an integer representing the number of folds
+#' @keywords Random Forest
+#'
+#' @return Numeric with the cross validation error
+#'
+#' @examples
+#' my_rf_cv(5)
+#'
+#' @export
 my_rf_cv <- function(k){
   #create folds
   a_fold <- sample(rep(1:k, length = nrow(penguins)))
