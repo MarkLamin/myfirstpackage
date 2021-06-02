@@ -1,3 +1,19 @@
+#' Linear Model
+#'
+#' This function creates a linear model and tests if there is a correlation between the model and the data.
+#'
+#' @param formula a formula class object
+#' @param data input dataframe
+#' @keywords linear regression
+#'
+#' @return A table with rows for each coefficient and columns for the estimate, standard error, test statistic and p-value
+#'
+#' @examples
+#' my_lm()
+#' my_lm()
+#'
+#'
+#' @export
 my_lm <- function(formula, data){
 
   #create X matrix
