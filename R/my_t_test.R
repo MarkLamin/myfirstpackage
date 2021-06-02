@@ -16,6 +16,10 @@
 #' @export
 my_t_test <- function(x, alternative, mu){
 
+  #if (alternative != "two.sided"|alternative != "less"|alternative != "greater") {
+    #stop("invalid value for alternative")
+    #}
+
   #degrees of freedom is one less than sample size
   df <- length(x)-1
 
