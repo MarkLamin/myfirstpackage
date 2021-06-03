@@ -4,7 +4,7 @@
 #'
 #' @param formula a formula class object
 #' @param data input dataframe
-#' @keywords linear regression
+#' @keywords inference
 #'
 #' @return A table with rows for each coefficient and columns for the estimate, standard error, test statistic and p-value
 #' @importFrom stats filter model.frame model.matrix model.response predict pt sd na.omit

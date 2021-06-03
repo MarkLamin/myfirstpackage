@@ -19,5 +19,4 @@ This function uses Random Forest as a method of statistical prediction and recor
 my_rf_cv(5)
 
 }
-\keyword{Forest}
-\keyword{Random}
+\keyword{prediction}

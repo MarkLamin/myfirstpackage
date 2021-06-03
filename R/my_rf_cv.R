@@ -3,7 +3,7 @@
 #' This function uses Random Forest as a method of statistical prediction and records the error
 #'
 #' @param k an integer representing the number of folds
-#' @keywords Random Forest
+#' @keywords prediction
 #'
 #' @return Numeric with the cross validation error
 #'

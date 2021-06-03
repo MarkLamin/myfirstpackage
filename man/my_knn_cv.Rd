@@ -26,6 +26,4 @@ my_penguins <- my_penguins \%>\% na.omit
 my_knn_cv(my_penguins[3:6], my_penguins$species, 1, 5)
 
 }
-\keyword{k}
-\keyword{nearest}
-\keyword{neighbors}
+\keyword{prediction}

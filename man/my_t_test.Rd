@@ -24,5 +24,4 @@ my_t_test(rnorm(36), "two.sided", 0)
 my_t_test(rpois(40,lambda=8), "less", 7)
 
 }
-\keyword{t}
-\keyword{test}
+\keyword{inference}

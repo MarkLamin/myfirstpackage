@@ -24,6 +24,7 @@ This is a basic example which shows you how to solve a common problem:
 library(myfirstpackage)
 ## basic example code
 ```
+## Use
 ```{r}
 To view the vignette:
 devtools::install_github("MarkLamin/myfirstpackage", build_vignette = TRUE, build_opts = c())

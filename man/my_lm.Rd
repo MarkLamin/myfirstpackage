@@ -22,5 +22,4 @@ my_lm(bill_length_mm~bill_depth_mm,my_penguins)
 
 
 }
-\keyword{linear}
-\keyword{regression}
+\keyword{inference}

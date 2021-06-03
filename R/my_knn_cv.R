@@ -7,7 +7,7 @@
 #' @param k_nn integer value representing the number of neighbors
 #' @param k_cv integer value representing the number of folds
 #'
-#' @keywords k nearest neighbors
+#' @keywords prediction
 #'
 #' @return A list with the predicted class values and the cross validation misclassification error
 #'

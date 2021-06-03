@@ -5,7 +5,7 @@
 #' @param x a numeric vector of data
 #' @param alternative a character string specifying the alternative hypothesis. Only accepts "two.sided", "less", or "greater".
 #' @param mu a number indicating the null hypothesis value of the mean.
-#' @keywords t test
+#' @keywords inference
 #'
 #' @return A list with the numeric test statistic, the degrees of freedom, the value of the parameter "alternative", and the p value
 #'
@@ -35,11 +35,9 @@ my_t_test <- function(x, alternative, mu){
   #p-value depends on alternative
   if(alternative == "less"){
     p_val <- pt(test_stat, df = length(x)-1)
-  }
-  else if(alternative == "greater"){
+  }else if(alternative == "greater"){
     p_val <- 1 - pt(test_stat, df = length(x)-1)
-  }
-  else if(alternative == "two.sided"){
+  }else if(alternative == "two.sided"){
     p_val <- 2*pt(q = -abs(test_stat), df = length(x)-1)
   }
 
