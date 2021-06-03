@@ -9,3 +9,11 @@ test_that("error occurs with invalid alternative",{
 test_that("length of output is 4",{
   expect_equal(length(my_t_test(rnorm(40), "two.sided", 0)),4)
 })
+
+test_that("length of output is 4",{
+  expect_equal(length(my_t_test(rnorm(40), "less", 0)),4)
+})
+
+test_that("length of output is 4",{
+  expect_equal(length(my_t_test(rnorm(40), "greater", 0)),4)
+})
