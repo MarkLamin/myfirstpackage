@@ -24,4 +24,5 @@ Imports:
     magrittr,
     class,
     dplyr,
-    randomForest
+    randomForest,
+    palmerpenguins
