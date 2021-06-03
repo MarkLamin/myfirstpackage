@@ -25,4 +25,5 @@ Imports:
     class,
     dplyr,
     randomForest,
-    palmerpenguins
+    palmerpenguins,
+    tibble
