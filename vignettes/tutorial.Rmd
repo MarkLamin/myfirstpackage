@@ -86,25 +86,44 @@ for(i in(1:10)){
 Based on the CV misclassification rates and training misclassification rates, I would choose 1 nearest neighbor. However, in practice, I might want to choose 2 or 3 nearest neighbors as while having 1 nearest neighbor would be more accurate, having slightly more nearest neighbors might increase generalizability. This is because having 2 or 3 nearest neighbors will create a better sense of the context of the specific part of the data by considering more data points in the prediction. I would still want a relatively small number of neighbors as having too many neighbors might result in a poor prediction as the context is not specific enough.
 
 ## Tutorial for Random Forest
-```{r}
+```{r, fig.width = 9}
 the_data <- matrix(NA, nrow = 90, ncol = 2)
 
 for(i in(1:90)){
   if(1<=i&i<=30){
     the_data[i,1] = my_rf_cv(2)
-    the_data[i,2] = "2"
+    the_data[i,2] = "02"
   }else if(31<=i&i<=60){
     the_data[i,1] = my_rf_cv(5)
-    the_data[i,2] = "5"
+    the_data[i,2] = "05"
   }else if(61<=i&i<=90){
     the_data[i,1] = my_rf_cv(10)
     the_data[i,2] = "10"
   }
 }
 the_data <- data.frame(the_data)
-the_data
            
 ggplot2::ggplot(data = the_data, mapping = ggplot2::aes(x = X2,
-                                               y = X1)) +
-  ggplot2::geom_boxplot()
+                                               y = as.numeric(X1))) +
+  ggplot2::geom_boxplot(color = "blue") + ggplot2::theme_bw() + 
+  ggplot2::labs(title = "Random Forest Error Based on Different Fold Values",
+                x = "Number of Folds", y = "Cross Validation Error")
+
+kis2 <- the_data %>% dplyr::filter(the_data$X2 == "02")
+kis5 <- the_data %>% dplyr::filter(the_data$X2 == "05")
+kis10 <- the_data %>% dplyr::filter(the_data$X2 == "10")
+
+mean_column <- c(mean(as.numeric(as.vector(kis2$X1))),
+                 mean(as.numeric(as.vector(kis5$X1))),
+                 mean(as.numeric(as.vector(kis10$X1))))
+sd_column <- c(sd(as.vector(kis2$X1)), sd(as.vector(kis5$X1)),
+               sd(as.vector(kis10$X1)))
+
+a_table <- cbind(mean_column, sd_column)
+colnames(a_table) <- c("mean", "sd")
+rownames(a_table) <- c("k=2", "k=5", "k=10")
+my_tab <- data.frame(a_table)
+my_tab
 ```
+
+We see from the table that the mean and standard deviation of the error decrease as we increase the number of folds. That means that my_rf_cv becomes more accurate and more precise as we increase the number of folds. This makes sense as a greater number of folds allows for more specific predictions and fewer data points causing errors.
