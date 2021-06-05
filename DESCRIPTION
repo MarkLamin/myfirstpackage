@@ -26,4 +26,5 @@ Imports:
     dplyr,
     randomForest,
     palmerpenguins,
-    tibble
+    tibble,
+    ggplot2
