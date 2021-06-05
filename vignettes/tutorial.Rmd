@@ -79,8 +79,32 @@ my_penguins <- my_penguins %>% na.omit
 for(i in(1:10)){
   model <- my_knn_cv(my_penguins[3:6], my_penguins$species, i, 5)
   print(model[2])
-  print(model[1]==my_penguins$species)
+  print(mean(model[[1]] != my_penguins$species))
 }
 ```
 
+Based on the CV misclassification rates and training misclassification rates, I would choose 1 nearest neighbor. However, in practice, I might want to choose 2 or 3 nearest neighbors as while having 1 nearest neighbor would be more accurate, having slightly more nearest neighbors might increase generalizability. This is because having 2 or 3 nearest neighbors will create a better sense of the context of the specific part of the data by considering more data points in the prediction. I would still want a relatively small number of neighbors as having too many neighbors might result in a poor prediction as the context is not specific enough.
+
 ## Tutorial for Random Forest
+```{r}
+the_data <- matrix(NA, nrow = 90, ncol = 2)
+
+for(i in(1:90)){
+  if(1<=i&i<=30){
+    the_data[i,1] = my_rf_cv(2)
+    the_data[i,2] = "2"
+  }else if(31<=i&i<=60){
+    the_data[i,1] = my_rf_cv(5)
+    the_data[i,2] = "5"
+  }else if(61<=i&i<=90){
+    the_data[i,1] = my_rf_cv(10)
+    the_data[i,2] = "10"
+  }
+}
+the_data <- data.frame(the_data)
+the_data
+           
+ggplot2::ggplot(data = the_data, mapping = ggplot2::aes(x = X2,
+                                               y = X1)) +
+  ggplot2::geom_boxplot()
+```
